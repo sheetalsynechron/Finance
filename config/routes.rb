@@ -1,11 +1,22 @@
 Finance::Application.routes.draw do
-  get "organization/index"
+  get "organisation_money/index"
+
+  get "organisation/index"
+
+   get "organisation/show"
+
+post "organisation/show"
+  #get "organization_money/index"
+
+  #get "organization/index"
 
   ActiveAdmin.routes(self)
 
   #devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users
+  devise_for :users do 
+     get '/users/sign_out' => 'devise/sessions#destroy'
+   end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,7 +69,7 @@ Finance::Application.routes.draw do
   # just remember to delete public/index.html.
  # root :to => ' organization#index'
   root :to => 'admin/dashboard#index', :constraints => lambda { |request| request.env['warden'].user.try(:role_name) == 'superadmin' }
-
+  root :to => 'organisation#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

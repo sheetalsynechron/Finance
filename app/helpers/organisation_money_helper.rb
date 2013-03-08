@@ -1,0 +1,2 @@
+module OrganisationMoneyHelper
+end

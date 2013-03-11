@@ -6,7 +6,7 @@ class OrganisationMoneyController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @organisation_money }
+      format.json { render :json => @organisation_money }
     end  
 
   end

@@ -6,8 +6,8 @@ ActiveAdmin.register User do
       f.input :password
       f.input :password_confirmation
       f.input :superadmin, :label => "Super Administrator"
-      f.input :admin, lable:"admin"
-      f.input :user1, lable:"user"
+      f.input :admin, :label =>"admin"
+      f.input :user1, :label =>"user"
     end
     f.buttons
   end

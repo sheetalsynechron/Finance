@@ -1,9 +1,18 @@
-<%= form_tag({:controller=>"organisation", :action=>"show"}, :method => :get) do %>
+<script>
+    jQuery(document).ready(function(){
+      // binds form submission and fields to the validation engine
+      jQuery("#elm_id").validationEngine();
+    });
+            
+</script>
 
+
+
+<%= form_tag( {:controller=>"organisation", :action=>"show"},:id => 'elm_id',:method => :get) do %>
 <table >
   <tbody>
 <%= label(:amount, "Donate:") %>
-<%= text_field_tag :calculation_amount, params[:calculation_amount] %>  
+<%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input]", :autofocus => true %>  
 
     <% @organisation_money.each do |organisation_money| %>
       <tr>    

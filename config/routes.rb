@@ -69,6 +69,7 @@ post "organisation/show"
   # just remember to delete public/index.html.
  # root :to => ' organization#index'
   root :to => 'admin/dashboard#index', :constraints => lambda { |request| request.env['warden'].user.try(:role_name) == 'superadmin' }
+   root :to => 'admin/dashboard#index', :constraints => lambda { |request| request.env['warden'].user.try(:role_name) == 'admin' }
   root :to => 'organisation#index'
   # See how all your routes lay out with "rake routes"
 

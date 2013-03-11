@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 
+
+controller.authorize_resource  
   form do |f|
     f.inputs "User Details" do
       f.input :email
@@ -9,7 +11,7 @@ ActiveAdmin.register User do
       f.input :admin, :label =>"admin"
       f.input :user1, :label =>"user"
     end
-    f.buttons
+    f.actions
   end
 
   create_or_edit = Proc.new {

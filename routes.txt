@@ -1,33 +1,44 @@
-   organization_money_index GET    /organization_money/index(.:format)    organization_money#index
-                 admin_root        /admin(.:format)                       admin/dashboard#index
-                 admin_user POST   /admin/users/:id(.:format)             admin/users#create
-                            PUT    /admin/users/:id(.:format)             admin/users#update
-   batch_action_admin_users POST   /admin/users/batch_action(.:format)    admin/users#batch_action
-                admin_users GET    /admin/users(.:format)                 admin/users#index
-                            POST   /admin/users(.:format)                 admin/users#create
-             new_admin_user GET    /admin/users/new(.:format)             admin/users#new
-            edit_admin_user GET    /admin/users/:id/edit(.:format)        admin/users#edit
-                            GET    /admin/users/:id(.:format)             admin/users#show
-                            PUT    /admin/users/:id(.:format)             admin/users#update
-                            DELETE /admin/users/:id(.:format)             admin/users#destroy
-            admin_dashboard        /admin/dashboard(.:format)             admin/dashboard#index
-batch_action_admin_comments POST   /admin/comments/batch_action(.:format) admin/comments#batch_action
-             admin_comments GET    /admin/comments(.:format)              admin/comments#index
-                            POST   /admin/comments(.:format)              admin/comments#create
-              admin_comment GET    /admin/comments/:id(.:format)          admin/comments#show
-             users_sign_out GET    /users/sign_out(.:format)              devise/sessions#destroy
-           new_user_session GET    /users/sign_in(.:format)               devise/sessions#new
-               user_session POST   /users/sign_in(.:format)               devise/sessions#create
-       destroy_user_session DELETE /users/sign_out(.:format)              devise/sessions#destroy
-              user_password POST   /users/password(.:format)              devise/passwords#create
-          new_user_password GET    /users/password/new(.:format)          devise/passwords#new
-         edit_user_password GET    /users/password/edit(.:format)         devise/passwords#edit
-                            PUT    /users/password(.:format)              devise/passwords#update
-   cancel_user_registration GET    /users/cancel(.:format)                devise/registrations#cancel
-          user_registration POST   /users(.:format)                       devise/registrations#create
-      new_user_registration GET    /users/sign_up(.:format)               devise/registrations#new
-     edit_user_registration GET    /users/edit(.:format)                  devise/registrations#edit
-                            PUT    /users(.:format)                       devise/registrations#update
-                            DELETE /users(.:format)                       devise/registrations#destroy
-                       root        /                                      admin/dashboard#index
-                       root        /                                      organization#index
+              organisation_index GET    /organisation/index(.:format)               organisation#index
+               organisation_show GET    /organisation/show(.:format)                organisation#show
+                                 POST   /organisation/show(.:format)                organisation#show
+                      admin_root        /admin(.:format)                            admin/dashboard#index
+                      admin_user POST   /admin/users/:id(.:format)                  admin/users#create
+                                 PUT    /admin/users/:id(.:format)                  admin/users#update
+        batch_action_admin_users POST   /admin/users/batch_action(.:format)         admin/users#batch_action
+                     admin_users GET    /admin/users(.:format)                      admin/users#index
+                                 POST   /admin/users(.:format)                      admin/users#create
+                  new_admin_user GET    /admin/users/new(.:format)                  admin/users#new
+                 edit_admin_user GET    /admin/users/:id/edit(.:format)             admin/users#edit
+                                 GET    /admin/users/:id(.:format)                  admin/users#show
+                                 PUT    /admin/users/:id(.:format)                  admin/users#update
+                                 DELETE /admin/users/:id(.:format)                  admin/users#destroy
+batch_action_admin_organisations POST   /admin/organisations/batch_action(.:format) admin/organisations#batch_action
+             admin_organisations GET    /admin/organisations(.:format)              admin/organisations#index
+                                 POST   /admin/organisations(.:format)              admin/organisations#create
+          new_admin_organisation GET    /admin/organisations/new(.:format)          admin/organisations#new
+         edit_admin_organisation GET    /admin/organisations/:id/edit(.:format)     admin/organisations#edit
+              admin_organisation GET    /admin/organisations/:id(.:format)          admin/organisations#show
+                                 PUT    /admin/organisations/:id(.:format)          admin/organisations#update
+                                 DELETE /admin/organisations/:id(.:format)          admin/organisations#destroy
+                 admin_dashboard        /admin/dashboard(.:format)                  admin/dashboard#index
+     batch_action_admin_comments POST   /admin/comments/batch_action(.:format)      admin/comments#batch_action
+                  admin_comments GET    /admin/comments(.:format)                   admin/comments#index
+                                 POST   /admin/comments(.:format)                   admin/comments#create
+                   admin_comment GET    /admin/comments/:id(.:format)               admin/comments#show
+                  users_sign_out GET    /users/sign_out(.:format)                   devise/sessions#destroy
+                new_user_session GET    /users/sign_in(.:format)                    devise/sessions#new
+                    user_session POST   /users/sign_in(.:format)                    devise/sessions#create
+            destroy_user_session DELETE /users/sign_out(.:format)                   devise/sessions#destroy
+                   user_password POST   /users/password(.:format)                   devise/passwords#create
+               new_user_password GET    /users/password/new(.:format)               devise/passwords#new
+              edit_user_password GET    /users/password/edit(.:format)              devise/passwords#edit
+                                 PUT    /users/password(.:format)                   devise/passwords#update
+        cancel_user_registration GET    /users/cancel(.:format)                     devise/registrations#cancel
+               user_registration POST   /users(.:format)                            devise/registrations#create
+           new_user_registration GET    /users/sign_up(.:format)                    devise/registrations#new
+          edit_user_registration GET    /users/edit(.:format)                       devise/registrations#edit
+                                 PUT    /users(.:format)                            devise/registrations#update
+                                 DELETE /users(.:format)                            devise/registrations#destroy
+                            root        /                                           admin/dashboard#index
+                            root        /                                           admin/dashboard#index
+                            root        /                                           organisation#index

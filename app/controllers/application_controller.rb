@@ -13,8 +13,5 @@ rescue_from CanCan::AccessDenied do |exception|
     @current_ability ||= Ability.new(current_user)
   end
   
-  private
-  def current_user
-    true
-  end
+  
 end

@@ -8,6 +8,6 @@
 #
 User.create(
 #[{email: 'superadmin@gmail.com', password:'password123',role_name:'superadmin'}]
-[{email: 'kp2@gmail.com', password:'123456789',role_name:'admin'}]
-#[{email: 'p2@gmail.com', password:'123456789',role_name:'user'}]
+#[{email: 'kp2@gmail.com', password:'123456789',role_name:'admin'}]
+[{:email => 'p2@gmail.com', :password =>'123456789', :role_name =>'user'}]
 )

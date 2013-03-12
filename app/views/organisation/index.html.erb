@@ -1,23 +1,33 @@
-<%= link_to "sign_out", destroy_user_session_path %>
+<h1>Organization#index</h1>
+<p><%= link_to "sign_out", destroy_user_session_path %></p>
 <%- model_class = Organisation -%>
 
- <p>  Click on Organisation Image to Donate</p>
-<table cellpadding="0" cellspacing="10" width="100%">
- <!-- IMAGES FOR ROW 1 -->
- 
-  <tr align="left">
-    <td valign="bottom" width="25%">     
-    <%= link_to (image_tag("1.jpeg" ),  organisation_money_index_path(:org_name=> "ahcf " ,:organisation_id => 100), :class => 'btn btn-mini')   %></a>
-    </td>
-    <td valign="bottom" width="25%">
-    <%= link_to (image_tag("2.jpeg" ),  organisation_money_index_path(:org_name=> "Baldricks" ,:organisation_id => 200), :class => 'btn btn-mini') %>
-    </td>
-    <td valign="bottom" width="25%">
-    <%= link_to (image_tag("3.png" ),  organisation_money_index_path(:org_name=> "Bill Gates",:organisation_id => 300), :class => 'btn btn-mini')   %>
-    </td>
-    <td valign="bottom" width="25%">
-    <%= link_to (image_tag("4.jpeg" ),  organisation_money_index_path(:org_name=> "National Park",:organisation_id => 400), :class => 'btn btn-mini')  %>
-    </td>
-  </tr>
-  <!-- CAPTIONS FOR ROW 1 -->
-  </table>
+<table >
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organisations.each do |organisation| %>
+      <tr>
+         <td><%= organisation.id %></td>
+        <td><%= organisation.name %></td>
+        <td>
+          <%= link_to t('Donate'),
+                      organisation_money_index_path(:organisation_id => organisation.id), :class => 'btn btn-mini' %>
+          <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      book_path(book),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%#= link_to t('.new', :default => t("helpers.links.new")),
+            new_book_path(:book_genre => @current_book_genre),
+            :class => 'btn btn-primary' %>

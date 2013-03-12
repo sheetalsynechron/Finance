@@ -12,8 +12,8 @@ class Ability
         can :manage, Organisation
         #can :read, Post 
 
-        cannot [:destroy,:edit], Organisation do |Organisation|
-            Organisation.try(:user_id) != user.id
+        cannot [:destroy,:edit], Organisation do |organisation|
+            organisation.try(:user_id) != user.id
         end
         when "user"
         can :manage, Organisation

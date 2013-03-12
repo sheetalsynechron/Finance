@@ -1,11 +1,11 @@
 Finance::Application.routes.draw do
-  get "organisation_money/index"
+ # get "organisation_money/index"
 
   get "organisation/index"
 
    get "organisation/show"
 
-post "organisation/show"
+  post "organisation/show"
   #get "organization_money/index"
 
   #get "organization/index"
@@ -18,6 +18,7 @@ post "organisation/show"
      get '/users/sign_out' => 'devise/sessions#destroy'
    end
 
+match ':controller/:action',:controller=>"organisation",:action=>"calculate_and_save"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,1 +1,28 @@
-<h1>This is show</h1>
+<script>
+    jQuery(document).ready(function(){
+      // binds form submission and fields to the validation engine
+      jQuery("#elm_id").validationEngine();
+    });
+            
+</script>
+<%= form_tag( {:controller=>"organisation", :action=>"calculate_and_save"},:id => 'elm_id',:method => :get) do %>
+<table >
+  <tbody>
+<%= label(:amount, "Donate:") %>
+<%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input]", :autofocus => true %>  
+
+     <% @organisation.each do |organisation| %>
+      <tr>    
+        <% @organisation_id = organisation.id %>
+          <% @amount = organisation.amount %>   
+      </tr>  
+      </tr>
+    <% end %>
+     <%= hidden_field_tag :organisation_id, @organisation_id %>
+       <%= hidden_field_tag :amount, @amount %>
+  </tbody>
+</table>
+ <%= submit_tag "Donate", :name => nil %>
+<%= link_to t('Cancel'),
+                      organisation_index_path(), :class => 'btn btn-mini' %>
+<% end %>

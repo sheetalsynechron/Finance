@@ -1,14 +1,18 @@
 ActiveAdmin.register User do
 
 
-controller.authorize_resource  
+controller.authorize_resource
+
+menu :if => proc{ can? :manage, User }
+
   form do |f|
     f.inputs "User Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :first_name
+      f.input :last_name
       f.input :role_name, :label => "Role"
-
     end
     f.actions
   end

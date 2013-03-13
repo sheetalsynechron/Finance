@@ -7,9 +7,10 @@ ActiveAdmin.register_page "Dashboard" do
     div id:"orders_chart" , style: "width:660px; height:300px" do
       if current_user.role? :superadmin
       render "/graph"
-      else
+      elsif   current_user.role? :admin
         render "/admin"
-      end
+
+       end
     end
 
 

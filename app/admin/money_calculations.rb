@@ -9,8 +9,7 @@ config.clear_sidebar_sections!
     column "Organisation", :organisation_name 
     column "User", :user_name 
     column "Donated At", :created_at 
-    column :user_id
-    column :organisation_id
+
    end
   end
 

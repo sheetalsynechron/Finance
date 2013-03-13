@@ -3,30 +3,32 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
-    
-      user ||= User.new # guest user (not logged in)
-      
-      case user.role_name    
+
+    user ||= User.new # guest user (not logged in)
+
+    case user.role_name
       when "superadmin"
         can :manage, :all
-        can :dashboard
-        when "admin"
-        can [:read,:update], Organisation
-        #can :read, Post
-        #cannot [:destroy,:edit], Organisation do |organisation|
-           # organisation.try(:user_id) != user.id
-        #end
-        when "user"
+      when "admin"
+        cannot [:read], Organisation
+        can :read, MoneyCalculation do |moneycalculation|
+          moneycalculation.try(:organisation_id) == Organisation.where(:user_id => current_user.id).select(:id).map(&:id).uniq
+        end
+      #can :read, Post
+      #cannot [:destroy,:edit], Organisation do |organisation|
+      # organisation.try(:user_id) != user.id
+      #end
+      when "user"
         #cannot :manage, Organisation
         cannot [:read,:destroy,:edit,:create], :all
-      end
+    end
     #
-    # The first argument to `can` is the action you are giving the user 
+    # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
     # here are :read, :create, :update and :destroy.
     #
-    # The second argument is the resource the user can perform the action on. 
+    # The second argument is the resource the user can perform the action on.
     # If you pass :all it will apply to every resource. Otherwise pass a Ruby
     # class of the resource.
     #

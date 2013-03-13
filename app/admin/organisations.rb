@@ -17,4 +17,5 @@ ActiveAdmin.register Organisation do
   end
     f.actions
   end
+
 end

@@ -7,18 +7,15 @@ controller.authorize_resource
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :superadmin, :label => "Super Administrator"
-      f.input :admin, :label =>"admin"
-      f.input :user1, :label =>"user"
+      f.input :role_name, :label => "Role"
+
     end
     f.actions
   end
 
   create_or_edit = Proc.new {
     @user            = User.find_or_create_by_id(params[:id])
-    @user.superadmin = params[:user][:superadmin]
-    @user.admin = params[:user][:admin]
-    @user.user1 = params[:user][:user1]
+
     @user.attributes = params[:user].delete_if do |k, v|
       (k == "superadmin") ||
           (["password", "password_confirmation"].include?(k) && v.empty? && !@user.new_record?)

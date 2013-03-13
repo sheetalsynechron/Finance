@@ -10,7 +10,10 @@ class Ability
       when "superadmin"
         can :manage, :all
       when "admin"
-        can [:read,:update], Organisation
+        cannot [:read], Organisation
+        can :read, MoneyCalculation do |moneycalculation|
+            moneycalculation.try(:organisation_id) == Organisation.where(:user_id => current_user.id).select(:id).map(&:id).uniq
+        end
         #can :read, Post
         #cannot [:destroy,:edit], Organisation do |organisation|
            # organisation.try(:user_id) != user.id

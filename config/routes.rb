@@ -1,4 +1,6 @@
 Finance::Application.routes.draw do
+  get "money_calculation/index"
+
  # get "organisation_money/index"
 
   get "organisation/index"

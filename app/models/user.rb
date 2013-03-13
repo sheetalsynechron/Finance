@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
   def role?(role)
     role_name.include?(role.to_s)
   end
+
+
 end

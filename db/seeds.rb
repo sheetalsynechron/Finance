@@ -3,9 +3,10 @@
 #
 # Examples:
 #
-Roles.create([{role_name: 'user'}, {role_name: 'admin'}, {role_name: 'superadmin'}])
+#Roles.create([{role_name: 'user'}, {role_name: 'admin'}, {role_name: 'superadmin'}])
 
-#
+
+
 #
 #User.create(
 #[{email: 'superadmin@gmail.com', password:'password123',role_name:'superadmin'}]

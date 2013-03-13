@@ -9,7 +9,8 @@ class Ability
       case user.role_name    
       when "superadmin"
         can :manage, :all
-      when "admin"
+        can :dashboard
+        when "admin"
         can [:read,:update], Organisation
         #can :read, Post
         #cannot [:destroy,:edit], Organisation do |organisation|

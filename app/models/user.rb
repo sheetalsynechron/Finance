@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
 
   ROLES =%w[superadmin admin user]
 
-  def role?(role)
-    role_name.include?(role.to_s)
-  end
+  # def role?(role)
+  #   role_name.include?(role.to_s)
+  # end
 
 
 end

@@ -1,12 +1,14 @@
 ActiveAdmin.register Organisation do
 	
 	config.clear_sidebar_sections!
+  controller.authorize_resource  
+    menu :if => proc{ can? :manage, User }
   index do
   	column :name
   	column :user_id
     column "Amount", :amount
   end
-# index OrganisationMoney do|organisationooney|
+# index OrganisationMoney do|organisationmoney|
 #   column "Amount", :total_amount,:collection=> OrganisationMoney.select(:id).map(&:id).uniq
 # end
   form do |f|
@@ -17,4 +19,5 @@ ActiveAdmin.register Organisation do
   end
     f.actions
   end
+
 end

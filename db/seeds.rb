@@ -5,9 +5,8 @@
 #
 #Roles.create([{role_name: 'user'}, {role_name: 'admin'}, {role_name: 'superadmin'}])
 
-["superadmin","admin","user"].each do |roles|
-	Roles.find_or_create_by_name(roles)
-end
+
+
 #
 #User.create(
 #[{email: 'superadmin@gmail.com', password:'password123',role_name:'superadmin'}]

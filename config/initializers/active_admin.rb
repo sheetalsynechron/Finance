@@ -141,10 +141,8 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
-
-
-  # == CSV options
+  #   config.register_javascript "/javascripts/application.js"
+       # == CSV options
   #
   # Set the CSV builder separator (default is ",")
   # config.csv_column_separator = ','

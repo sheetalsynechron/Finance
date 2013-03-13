@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :Roles
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_name,:id
+  attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_name,:id,:first_name,:last_name
   # attr_accessible :title, :body
 
   ROLES =%w[superadmin admin user]
@@ -15,6 +15,4 @@ class User < ActiveRecord::Base
   def role?(role)
     role_name.include?(role.to_s)
   end
-
-
 end

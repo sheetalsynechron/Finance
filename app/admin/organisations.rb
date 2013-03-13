@@ -1,6 +1,9 @@
 ActiveAdmin.register Organisation do
-	
+	 
+
 	config.clear_sidebar_sections!
+  controller.authorize_resource  
+    menu :if => proc{ can? :manage, User }
   index do
   	column :name
   	column :user_id

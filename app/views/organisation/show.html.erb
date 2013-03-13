@@ -9,16 +9,17 @@
 <table >
   <tbody>
 <%= label(:amount, "Donate:") %>
-<%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input]", :autofocus => true %>  
-
+<%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input]", :autofocus => true %>
      <% @organisation.each do |organisation| %>
       <tr>    
         <% @organisation_id = organisation.id %>
           <% @amount = organisation.amount %>   
+          <% @organisation_name = organisation.name %>   
       </tr>  
       </tr>
     <% end %>
      <%= hidden_field_tag :organisation_id, @organisation_id %>
+      <%= hidden_field_tag :organisation_name, @organisation_name %>
        <%= hidden_field_tag :amount, @amount %>
   </tbody>
 </table>

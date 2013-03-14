@@ -4,7 +4,14 @@ ActiveAdmin.register User do
 controller.authorize_resource
 
 menu :if => proc{ can? :manage, User }
-
+index do
+    column :email
+    column :sign_in_count
+    column :created_at
+    column :role_name
+    column :first_name
+    column :last_name
+  end
   form do |f|
     f.inputs "User Details" do
       f.input :email

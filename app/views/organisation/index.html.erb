@@ -16,7 +16,7 @@
         <td><%= organisation.name %></td>
         <td>
           <%= link_to t('Donate'),
-                      organisation_show_path(:organisation_id => organisation.id,:organisation_name => organisation.name), :class => 'btn btn-mini' %>
+                      organisation_show_path(:organisation_id => organisation.id), :class => 'btn btn-mini' %>
         </td>
       </tr>
     <% end %>

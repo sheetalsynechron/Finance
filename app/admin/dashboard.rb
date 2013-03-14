@@ -9,14 +9,8 @@ ActiveAdmin.register_page "Dashboard" do
       render "/graph"
       elsif   current_user.role? :admin
         render "/admin"
-
        end
     end
-
-
-
-
-
   end
     # Here is an example of a simple dashboard with columns and panels.
     #

@@ -8,9 +8,6 @@ ActiveAdmin.register Organisation do
   	column :user_id
     column "Amount", :amount
   end
-# index OrganisationMoney do|organisationmoney|
-#   column "Amount", :total_amount,:collection=> OrganisationMoney.select(:id).map(&:id).uniq
-# end
   form do |f|
     f.inputs "Organisation Details" do
       f.input :name

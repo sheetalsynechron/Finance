@@ -32,7 +32,4 @@ menu :if => proc{ can? :manage, User }
   }
   member_action :create, :method => :post, &create_or_edit
   member_action :update, :method => :put, &create_or_edit
-
-
-
 end

@@ -1,20 +1,11 @@
 Finance::Application.routes.draw do
-  get "money_calculation/index"
-
- # get "organisation_money/index"
-
-  get "organisation/index"
+    get "organisation/index"
 
    get "organisation/show"
 
   post "organisation/show"
-  #get "organization_money/index"
-
-  #get "organization/index"
 
   ActiveAdmin.routes(self)
-
-  #devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users do 
      get '/users/sign_out' => 'devise/sessions#destroy'

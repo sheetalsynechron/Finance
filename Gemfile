@@ -30,7 +30,7 @@ group :assets do
 end
 group :development, :test do
    gem 'rspec-rails', '~> 2.13.0'
-   gem 'factory_girl_rails', '~>1.1'
+   gem 'factory_girl', '~>2.6.4'
 
 end
 gem 'simplecov', :require => false, :group => :test

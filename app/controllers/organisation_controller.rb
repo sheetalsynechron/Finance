@@ -3,7 +3,7 @@ class OrganisationController < ApplicationController
   def index
 
   	@organisations= Organisation.all
-  	 respond_to do |format|
+      	 respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @organisations }
     end  

@@ -4,8 +4,7 @@ FactoryGirl.define do
   	o.name "synechron"
   	o.user_id 2
   	o.amount 1000
-
-  end
+ end
   
   # factory :invalid_organisation, parent: :organisation do |f|
   # 	f.firstname nil

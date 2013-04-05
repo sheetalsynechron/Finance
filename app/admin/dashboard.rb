@@ -6,12 +6,14 @@ ActiveAdmin.register_page "Dashboard" do
 
     div id:"orders_chart" , style: "width:660px; height:300px" do
       if current_user.role? :superadmin
-      render "/graph"
+      render "/graph" 
       elsif   current_user.role? :admin
         render "/admin"
        end
     end
   end
+
+  
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
@@ -31,8 +33,6 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
-
-
 
 
 

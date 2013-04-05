@@ -1,5 +1,5 @@
 class OrganisationController < ApplicationController
-#before_filter :authenticate_user!
+before_filter :authenticate_user!
   def index
 
   	@organisations= Organisation.all

@@ -1,15 +1,19 @@
 Finance::Application.routes.draw do
-    get "organisation/index"
+     get "organisation/index"
 
-   get "organisation/show"
+    get "organisation/show"
 
-  post "organisation/show"
+   post "organisation/show"
 
   ActiveAdmin.routes(self)
 
-  devise_for :users do 
+
+    devise_for :users do 
      get '/users/sign_out' => 'devise/sessions#destroy'
    end
+
+
+    #devise_for :users , controllers: { :sessions => "users/sessions" }
 
 match ':controller/:action',:controller=>"organisation",:action=>"calculate_and_save"
   # The priority is based upon order of creation:

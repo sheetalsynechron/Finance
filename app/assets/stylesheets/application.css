@@ -32,3 +32,12 @@ bottom:30px;
 	background-color:#1492c2 ;
    padding:5px;
 }
+
+
+#captcha{
+position:relative;
+padding-bottom: 0px;
+margin-right: 0px;
+height: 250;
+width: 500;
+}

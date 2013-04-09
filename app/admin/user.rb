@@ -31,10 +31,16 @@ index do
       (k == "superadmin") ||
           (["password", "password_confirmation"].include?(k) && v.empty? && !@user.new_record?)
     end
-    if @user.save
-      redirect_to :action => :show, :id => @user.id
+    if verify_recaptcha
+      if @user.save
+        redirect_to :action => :show, :id => @user.id
+      else
+        render active_admin_template((@user.new_record? ? 'new' : 'edit') + '.html.erb')
+      end
     else
-      render active_admin_template((@user.new_record? ? 'new' : 'edit') + '.html.erb')
+      flash.now[:alert] = "There is an error with the recaptcha code below. Please re-enter the code."      
+      flash.delete :recaptcha_error 
+      render "new"
     end
   }
   member_action :create, :method => :post, &create_or_edit

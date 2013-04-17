@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>Finance</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap_and_overrides", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -38,19 +38,33 @@ Released   : 20132402
 <![endif]-->
 </head>
 <body>
-<div id="header" class="container">
-  <div id="logo">
-    <h1><a><span>Finance</span></a></h1>
-  </div>
-</div>
-<div id="banner-wrapper">
-<div id="banner" class="container">
 
- <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+
+
+
+   <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+    <a class="brand" href="#">Finance</a>
+    </div>
+    </div>
+    <div class="row">
+
+      <div class="container">
+    
+    <div class="span6">
+      <%= yield %>
+          <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <% end %>
+          
+
+</div>
+
 <%if user_signed_in? %>
-<div id="flip">chat</div>
+          
+<div class="span4">
+
+<h2><div id="flip">chat</div></h2>
 <div id="box">
   <script type="text/javascript">
    var addonchat = {
@@ -65,13 +79,20 @@ Released   : 20132402
    Java Now</a>
 </noscript>
 </div>
-<%end%>
-<%= yield %>
 
-		
-		
+
+  
 </div>
+<% end %>
+
 </div>
+
+</div>
+
+
+
+
+
 
 
 <div id="footer" class="container">

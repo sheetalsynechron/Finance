@@ -15,7 +15,7 @@ gem 'activeadmin'
 
 
 
-gem 'rmagick'
+#gem 'rmagick'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,7 +34,6 @@ group :development, :test do
 
 end
 gem 'simplecov', :require => false, :group => :test
-gem "recaptcha", :require => "recaptcha/rails"
 
 gem 'jquery-rails'
 

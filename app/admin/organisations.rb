@@ -7,7 +7,7 @@ ActiveAdmin.register Organisation do
   	column :name
   	column :user_id
     column "Amount", :amount
-  end
+    end
   form do |f|
     f.inputs "Organisation Details" do
       f.input :name
@@ -16,5 +16,8 @@ ActiveAdmin.register Organisation do
   end
     f.actions
   end
+
+
+
 
 end

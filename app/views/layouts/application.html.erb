@@ -48,55 +48,23 @@ Released   : 20132402
     </div>
     </div>
     <div class="row">
-
-      <div class="container">
-    
-    <div class="span6">
-      <%= yield %>
+    <div class="container">
+  <div class="span6">
+    <%= yield %>
           <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
           <% end %>
-          
+  </div>
+  </div>
+  </div>
 
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+<center><p>Copyright (c) 2013 DonateHelp.com. All rights reserved.</p></center>
 </div>
-
-<%if user_signed_in? %>
-          
-<div class="span4">
-
-<h2><div id="flip">chat</div></h2>
-<div id="box">
-  <script type="text/javascript">
-   var addonchat = {
-      server:12, id:593272, width:"400",
-      height:"425", signed:true, language:"en" }
-   </script>
-   <script type="text/javascript"
-   src="http://client12.addonchat.com/chat.js"></script><noscript>
-   To enter this chat room, please enable JavaScript in your web
-   browser. This <a href="http://www.addonchat.com/">Chat
-   Software</a> requires Java: <a href="http://www.java.com/">Get
-   Java Now</a>
-</noscript>
 </div>
+</div
 
-
-  
-</div>
-<% end %>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div id="footer" class="container">
-	<p>Copyright (c) 2013 DonateHelp.com. All rights reserved.</p>
-</div>
 </body>
 </html>

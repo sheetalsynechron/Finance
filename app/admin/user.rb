@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
 
 
-controller.authorize_resource
+#controller.authorize_resource
 
 menu :if => proc{ can? :manage, User }
 index do
@@ -25,7 +25,7 @@ index do
   end
 
   create_or_edit = Proc.new {
-    @user            = User.find_or_create_by_id(params[:id])
+    @user   = User.find_or_create_by_id(params[:id])
 
     @user.attributes = params[:user].delete_if do |k, v|
       (k == "superadmin") ||
@@ -38,5 +38,7 @@ index do
       end
     }
   member_action :create, :method => :post, &create_or_edit
+
+
   member_action :update, :method => :put, &create_or_edit
 end

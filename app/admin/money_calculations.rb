@@ -5,10 +5,10 @@ ActiveAdmin.register MoneyCalculation do
 
  index do
   if can? :read, MoneyCalculation
+  	column "Donation Date", :created_at 
     column "Donated Amount", :calculation_amount 
     column "Organisation", :organisation_name 
-    column "User", :user_name 
-    column "Donated At", :created_at 
+    column "User", :user_id
    end
   end
 end

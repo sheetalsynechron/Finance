@@ -5,9 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_and_belongs_to_many :Roles
+  has_many :roles
+  attr_accessible :organisation_attributes
+  has_many :oraganisation
+
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_name,:id,:first_name,:last_name
+  attr_accessible :id,:email, :password, :password_confirmation, :remember_me ,:role_name,:first_name,:last_name
   # attr_accessible :title, :body
 
   ROLES =%w[superadmin admin user]

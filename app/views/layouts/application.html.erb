@@ -9,94 +9,48 @@
   <%= csrf_meta_tags %>
 </head>
 
-
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : SimpleCorp 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20132402
-
--->
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
-<!-- <link href="default.css" rel="stylesheet" type="text/css" media="all" /> -->
-<!--[if IE 6]>
-<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-</head>
 <body>
-
-
-
-
    <div class="navbar navbar-inverse">
     <div class="navbar-inner">
     <a class="brand" href="#">Finance</a>
-    </div>
-    </div>
-    <div class="row">
 
-      <div class="container">
-    
-    <div class="span6">
-      <%= yield %>
+<ul class="nav pull-right">
+<li>
+  <% if user_signed_in? %>
+<%= link_to "Sign out", destroy_user_session_path %>
+<% end %>
+</li>
+</ul>
+    </div>
+    </div>
+     <div class="container">
+    <div class="row">
+   
+  <div class="span6">
+    <%= yield %>
           <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
           <% end %>
-          
+  </div>
+ 
+ 
 
+  <div class="span5">
+    <center>
+<%= link_to image_tag("charity.png", :border => 0) %></center>
+ 
 </div>
+ </div>
+   </div>
 
-<%if user_signed_in? %>
-          
-<div class="span4">
-
-<h2><div id="flip">chat</div></h2>
-<div id="box">
-  <script type="text/javascript">
-   var addonchat = {
-      server:12, id:593272, width:"400",
-      height:"425", signed:true, language:"en" }
-   </script>
-   <script type="text/javascript"
-   src="http://client12.addonchat.com/chat.js"></script><noscript>
-   To enter this chat room, please enable JavaScript in your web
-   browser. This <a href="http://www.addonchat.com/">Chat
-   Software</a> requires Java: <a href="http://www.java.com/">Get
-   Java Now</a>
-</noscript>
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+<center><p>Copyright (c) 2013 DonateHelp.com. All rights reserved.</p></center>
+</div>
+</div>
 </div>
 
 
-  
-</div>
-<% end %>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div id="footer" class="container">
-	<p>Copyright (c) 2013 DonateHelp.com. All rights reserved.</p>
-</div>
 </body>
 </html>

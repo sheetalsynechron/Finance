@@ -6,10 +6,13 @@
             
 </script>
 <%= form_tag( {:controller=>"organisation", :action=>"calculate_and_save"},:id => 'elm_id',:method => :get) do %>
-<table >
-  <tbody>
+<table class="table table-hover" >
+ <tr>
+  <td>
 <%= label(:amount, "Donate:") %>
 <%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input]", :autofocus => true %>
+</td>
+</tr>
      <% @organisation.each do |organisation| %>
       <tr>    
         <% @organisation_id = organisation.id %>
@@ -21,9 +24,11 @@
      <%= hidden_field_tag :organisation_id, @organisation_id %>
       <%= hidden_field_tag :organisation_name, @organisation_name %>
        <%= hidden_field_tag :amount, @amount %>
-  </tbody>
-</table>
+  
+<tr><td>
  <%= submit_tag "Donate", :name => nil %>
 <%= link_to t('Cancel'),
                       organisation_index_path(), :class => 'btn btn-mini' %>
+                    </td></tr>
 <% end %>
+</table>

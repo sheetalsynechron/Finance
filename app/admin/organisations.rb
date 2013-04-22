@@ -42,4 +42,3 @@ ActiveAdmin.register Organisation do
 
   member_action :delete, :method => :post, & delete
 end
-

@@ -6,7 +6,9 @@ Finance::Application.routes.draw do
    post "organisation/show"
 
   ActiveAdmin.routes(self)
-
+resources :organisation do
+ resources :user
+ end
 
     devise_for :users do 
      get '/users/sign_out' => 'devise/sessions#destroy'

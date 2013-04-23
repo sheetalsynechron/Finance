@@ -1,22 +1,38 @@
-<h1>Organizations</h1>
-
 <%- model_class = Organisation -%>
 
 <table class="table table-hover" >
   <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+    <tr><th><h3>
+      Organisation</th></h3>
+      <th><h3><%= model_class.human_attribute_name(:name) %></h3></th>
     </tr>
   </thead>
   <tbody>
     <% @organisations.each do |organisation| %>
       <tr>
-         <td><%= organisation.id %></td>
-        <td><%= organisation.name %></td>
+        <td>
+         
+
+    <ul class="thumbnails">
+       <li class="span1" >
+
+  
+  
+
+  
+<%= link_to image_tag(organisation.image_url(:thumb)),
+                      organisation_show_path(:organisation_id => organisation.id) %>
+
+
+  </li>
+  </ul>
+
+</td>
+        
+        <td><h4><%= organisation.name %></h4></td>
         <td>
           <%= link_to t('Donate'),
-                      organisation_show_path(:organisation_id => organisation.id), :class => 'btn btn-mini' %>
+                      organisation_show_path(:organisation_id => organisation.id), :class =>"btn btn-primary" %>
         </td>
       </tr>
     <% end %>

@@ -15,6 +15,11 @@ gem 'activeadmin'
 
 
 
+gem "rmagick"
+gem "carrierwave"
+
+
+
 #gem 'rmagick'
 
 # Gems used only for assets and not required

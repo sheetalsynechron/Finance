@@ -1,8 +1,7 @@
 ActiveAdmin.register User do
-
-
-#controller.authorize_resource
-
+  
+controller.authorize_resource
+config.clear_action_items!
 menu :if => proc{ can? :manage, User }
 index do
     column :email
@@ -11,6 +10,7 @@ index do
     column :role_name
     column :first_name
     column :last_name
+    default_actions
   end
   form do |f|
     f.inputs "User Details" do

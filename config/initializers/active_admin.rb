@@ -8,7 +8,13 @@ ActiveAdmin.setup do |config|
   config.site_title = "Finance"
 
 
-  
+  config.authentication_method = :authenticate_admin_user!
+
+
+  def authenticate_admin_user!
+    raise SecurityError if current_user.role? :user
+  end 
+
  
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.

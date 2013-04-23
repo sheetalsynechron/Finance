@@ -12,14 +12,22 @@
 <body>
    <div class="navbar navbar-inverse">
     <div class="navbar-inner">
-    <a class="brand" href="#">Finance</a>
+    <a class="brand">Finance</a>
 
 <ul class="nav pull-right">
-<li>
+  
+
   <% if user_signed_in? %>
-<%= link_to "Sign out", destroy_user_session_path %>
-<% end %>
+<li><h4><a><%= current_user.email %>
+  </a></h4></li>
+  <li><a>|</a></li> 
+  <li>
+  <h4>
+
+<%= link_to "Sign out", destroy_user_session_path %><h4>
+
 </li>
+<% end %>
 </ul>
     </div>
     </div>

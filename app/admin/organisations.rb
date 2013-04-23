@@ -27,7 +27,7 @@ ActiveAdmin.register Organisation do
       user_form.input :password_confirmation
       user_form.input :first_name
       user_form.input :last_name
-      user_form.input :role_name, :label => "Role"
+      user_form.input :role_name, :as => :hidden, :value => "admin"
     end     
     f.actions
   end

@@ -24,6 +24,7 @@ index do
     f.actions
   end
 
+  
   create_or_edit = Proc.new {
     @user   = User.find_or_create_by_id(params[:id])
 
@@ -38,6 +39,7 @@ index do
       end
     }
   member_action :create, :method => :post, &create_or_edit
+  member_action :update, :method => :put, &create_or_edit
 
 
   member_action :update, :method => :put, &create_or_edit

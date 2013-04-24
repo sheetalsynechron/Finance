@@ -3,33 +3,33 @@
       // binds form submission and fields to the validation engine
       jQuery("#elm_id").validationEngine();
     });
-            
 </script>
-<%= form_tag( {:controller=>"organisation", :action=>"calculate_and_save"},:id => 'elm_id',:method => :get) do %>
-<table class="table table-hover" >
- <tr>
-  <td>
-<%= label(:amount, "Donate:") %>
-<%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input]", :autofocus => true %>
-</td>
-</tr>
-     <% @organisation.each do |organisation| %>
-
-      <tr>    
+<!---------------------------------------------------------------------------------------------------------------->
+<section id="forms">
+  <div class="row">
+    <div class="span10 offset1">
+    <%= form_tag( {:controller=>"organisation", :action=>"calculate_and_save"},:id => 'elm_id',:class =>"well form-horizontal",:method => :get) do %>
+<fieldset>
+  <legend>Enter the amount For Donation</legend>
+  <div class="control-group">
+    <div class="controls">
+      <%= text_field_tag :calculation_amount, params[:calculation_amount],:class => "validate[required,custom[integer],min[0]] text-input],input-xlarge", :placeholder=>"Donate" %>
+  </div>
+  </div>
+      <% @organisation.each do |organisation| %>
         <% @organisation_id = organisation.id %>
           <% @amount = organisation.amount %>   
           <% @organisation_name = organisation.name %>   
-      </tr>  
-      </tr>
-    <% end %>
+     <% end %>
      <%= hidden_field_tag :organisation_id, @organisation_id %>
       <%= hidden_field_tag :organisation_name, @organisation_name %>
        <%= hidden_field_tag :amount, @amount %>
-  
-<tr><td>
- <%= submit_tag "Donate", :name => nil,:class =>"btn btn-primary" %>
-<%= link_to t('Cancel'),
-                      organisation_index_path(),:class =>"btn btn-primary" %>
-                    </td></tr>
+  <div class="form-actions">
+    <%= submit_tag "Donate", :name => nil,:class =>"btn btn-primary" %>
+    <%= link_to t('Cancel'), organisation_index_path(),:class =>"btn btn-primary" %>
+  </div>
 <% end %>
-</table>
+      </fieldset>
+        </div>
+        </div>
+    </section>

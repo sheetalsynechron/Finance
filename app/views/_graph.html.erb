@@ -1,49 +1,37 @@
 <%= javascript_include_tag "highcharts.js", "exporting.js" %>
+<script type="text/javascript" charset="utf-8">
+    $(function(){
+        new Highcharts.Chart({
+            chart:{
+                renderTo: "orders_chart" ,
+                //  type: "column"
+                defaultSeriesType: 'column'
+            },
+            title:{
+                text:"Organization Amount"
+            },
+            xAxis: {
+                categories: [<% Organisation.select(:name).each do|n| %>
 
-       <script type="text/javascript" charset="utf-8">
+                    '<%= n.name  %>',
+                    <%end%>]
+            },
+            plotOptions: {
+                series: {
+                }
+            },
+            yAxis:{
+                title:{
+                    text: "Amount"
+                }
+            },
+            series: [{
+                data:  [<% Organisation.select(:amount).each do|n| %>
 
-         $(function(){
-             new Highcharts.Chart({
-
-                 chart:{
-                     renderTo: "orders_chart" ,
-                   //  type: "column"
-                     defaultSeriesType: 'column'
-                 },
-                 title:{
-                     text:"Organization Amount"
-                 },
-                 xAxis: {
-
-
-                     categories: [<% Organisation.select(:name).each do|n| %>
-
-                        '<%= n.name  %>',
-                         <%end%>]
-
-
-                     },
-                 plotOptions: {
-
-
-                         series: {
-
-
-                         }
-                 },
-                 yAxis:{
-                     title:{
-                         text: "Amount"
-                     }
-                 },
-                 series: [{
-                     data:  [<% Organisation.select(:amount).each do|n| %>
-
-                          <%= n.amount  %>,
-                         <%end%>]  ,
-                     name: 'Orgnization Amount'
-                 }]
-             });
-         });
-
-       </script>
+                    <%= n.amount  %>,
+                    <%end%>]  ,
+                name: 'Orgnization Amount'
+            }]
+        });
+    });
+</script>
